@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="/ra-drug-calc/manifest.json">
+<link rel="apple-touch-icon" href="/ra-drug-calc/icon.svg">
+<link rel="icon" href="/ra-drug-calc/icon.svg" type="image/svg+xml">
 <title>风免计算器</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -451,6 +456,7 @@ function calcOffset(){
   document.getElementById('offsetNum').textContent=fmtDate(end)
   document.getElementById('offsetResult').classList.remove('hide')
 }
+if('serviceWorker'in navigator)navigator.serviceWorker.register('/ra-drug-calc/sw.js')
 </script>
 </body>
 </html>
