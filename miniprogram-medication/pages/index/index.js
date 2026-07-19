@@ -396,7 +396,7 @@ Page({
     const todayStr = util.formatDate(new Date())
     const remainingDays = util.diffDays(new Date(), finalEnd)
     const refillUrgent = suggestStr <= todayStr
-    const pillsNeeded = contMet ? 0 : Math.ceil(latest.dailyDose * targetRemain)
+    const pillsNeeded = contMet ? 0 : this.calcPillsNeeded(targetRemain, latest.freqVal, latest.dosePerTime, latest.dailyDose)
     this.setData({
       gapResult: {
         gaps, totalGapDays, sorted: entries, count: list.length,
@@ -412,6 +412,14 @@ Page({
 
   /* ====== Records (Save/Load) ====== */
   STORAGE_KEY: 'calc_records',
+  calcPillsNeeded(targetRemain, freqVal, dosePerTime, dailyDose) {
+    const bd = getBatchDays(freqVal)
+    if (bd) {
+      const pb = getBatchPills(freqVal, +dosePerTime) || +dosePerTime
+      return Math.ceil(targetRemain / bd) * pb
+    }
+    return Math.ceil(dailyDose * targetRemain)
+  },
 
   loadRecords() {
     const raw = wx.getStorageSync(this.STORAGE_KEY) || []
@@ -461,7 +469,7 @@ Page({
     const target = 90
     const targetRemain = Math.max(0, target - contTotalDays)
     const contMet = contTotalDays >= target
-    const pillsNeeded = contMet ? 0 : Math.ceil(currentDose * targetRemain)
+    const pillsNeeded = contMet ? 0 : this.calcPillsNeeded(targetRemain, sorted[sorted.length - 1].freqVal, sorted[sorted.length - 1].dosePerTime, currentDose)
     return { remainingDays, endDate: finalDate, contDays: contTotalDays, contMet, targetRemain, pillsNeeded, unit: sorted[sorted.length - 1]?.unit || '粒' }
   },
 
