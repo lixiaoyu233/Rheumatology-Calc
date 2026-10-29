@@ -1,4 +1,4 @@
-const CACHE = 'fengmian-v3'
+const CACHE = 'fengmian-v4'
 const URLS = ['./', './index.html', './manifest.json', './icon.svg']
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(URLS)))
