@@ -437,7 +437,8 @@ function onDrugChange(){
   document.getElementById('medName').textContent=name
   document.getElementById('dosePerTime').value=info.dose
   document.getElementById('freqSelect').value=info.freq
-  document.getElementById('drugNote').textContent=info.note||''
+  // 「一盒的量」只作提示显示（产品确认）：不影响任何计算，仅在说明后追加
+  document.getElementById('drugNote').textContent=(info.note||'')+(info.perBox?'　｜ '+info.perBox:'')
   document.getElementById('prescForm').classList.remove('hide')
   document.getElementById('actionBtns').classList.remove('hide')
   document.getElementById('multiSection').classList.remove('hide')

@@ -4,6 +4,7 @@ const drugDB = {
   '羟氯喹':{cat:'csDMARDs',spec:'0.1g',unit:'片',freq:'QD',dose:'2',note:'常用剂量 0.2-0.4g/日（2-4片/日）'},
   '艾拉莫德':{cat:'csDMARDs',spec:'25mg',unit:'片',freq:'BID',dose:'1',note:'常用剂量 25mg/次 BID（1片/次，每日2次）'},
   '柳氮磺胺嘧啶':{cat:'csDMARDs',spec:'0.25g',unit:'片',freq:'BID',dose:'2',note:'常用剂量 0.5-0.75g/次 BID/TID（2-3片/次），建议饭后服用'},
+  '吗替麦考酚酯':{cat:'csDMARDs',spec:'0.25g',unit:'片',freq:'BID',dose:'2',perBox:'40片/盒',note:'常用剂量 0.5-1.5g/日，分2次（0.25g 规格即 2-6片/次，常用 2片/次 BID）'},
   '托法替布':{cat:'tsDMARDs',spec:'5mg',unit:'片',freq:'BID',dose:'1',note:'常用剂量 5mg/次 BID（每日2次，每次1片）'},
   '巴瑞替尼':{cat:'tsDMARDs',spec:'2mg',unit:'片',freq:'QD',dose:'1',note:'常用剂量 2-4mg/日 QD（每日1次，1-2片），老年人减量'},
   '乌帕替尼':{cat:'tsDMARDs',spec:'15mg',unit:'片',freq:'QD',dose:'1',note:'常用剂量 15mg/日 QD（每日1次，1片缓释片）'},
